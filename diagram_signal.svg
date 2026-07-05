@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="920" height="470" fill="#ffffff"/>
+  <text x="460" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">Signal path through the Enigma M4 (one character)</text>
+  <text x="460" y="56" text-anchor="middle" font-size="13" fill="#6b7280">code: gEnc() / EnigmaCPU::encryptChar() &#8212; reciprocal path</text>
+
+  <!-- row labels -->
+  <text x="18" y="92" font-size="12" font-weight="700" fill="#16a34a">FORWARD &#8594;</text>
+  <text x="18" y="262" font-size="12" font-weight="700" fill="#dc2626">&#8592; BACKWARD (inverse)</text>
+
+  <!-- ===== Forward row (y=100..156) ===== -->
+  <!-- IN -->
+  <rect x="18" y="100" width="86" height="56" rx="8" fill="#e5e7eb" stroke="#374151" stroke-width="1.5"/>
+  <text x="61" y="126" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">INPUT</text>
+  <text x="61" y="144" text-anchor="middle" font-size="11" fill="#6b7280">letter</text>
+  <!-- PLUG -->
+  <rect x="132" y="100" width="86" height="56" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="175" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">PLUG</text>
+  <text x="175" y="142" text-anchor="middle" font-size="10" fill="#92400e">Steckerbrett</text>
+  <!-- R -->
+  <rect x="246" y="100" width="86" height="56" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="289" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">RIGHT</text>
+  <text x="289" y="142" text-anchor="middle" font-size="10" fill="#1e40af">rotor</text>
+  <!-- M -->
+  <rect x="360" y="100" width="86" height="56" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="403" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">MIDDLE</text>
+  <text x="403" y="142" text-anchor="middle" font-size="10" fill="#1e40af">rotor</text>
+  <!-- L -->
+  <rect x="474" y="100" width="86" height="56" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="517" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">LEFT</text>
+  <text x="517" y="142" text-anchor="middle" font-size="10" fill="#1e40af">rotor</text>
+  <!-- THIN -->
+  <rect x="588" y="100" width="86" height="56" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="631" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">THIN</text>
+  <text x="631" y="142" text-anchor="middle" font-size="10" fill="#5b21b6">Beta/Gamma</text>
+
+  <!-- REFLECTOR (spans both rows) -->
+  <rect x="702" y="100" width="100" height="226" rx="10" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="752" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">REFLECTOR</text>
+  <text x="752" y="225" text-anchor="middle" font-size="11" fill="#991b1b">B / C &#8211; thin</text>
+  <text x="752" y="246" text-anchor="middle" font-size="10" fill="#991b1b">involution</text>
+
+  <!-- ===== Return row (y=270..326) ===== -->
+  <rect x="588" y="270" width="86" height="56" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="631" y="303" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">THIN</text>
+  <rect x="474" y="270" width="86" height="56" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="517" y="303" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">LEFT</text>
+  <rect x="360" y="270" width="86" height="56" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="403" y="303" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">MIDDLE</text>
+  <rect x="246" y="270" width="86" height="56" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="289" y="303" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">RIGHT</text>
+  <rect x="132" y="270" width="86" height="56" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="175" y="303" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">PLUG</text>
+  <rect x="18" y="270" width="86" height="56" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="61" y="296" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">OUTPUT</text>
+  <text x="61" y="314" text-anchor="middle" font-size="11" fill="#166534">letter</text>
+
+  <!-- arrowhead defs -->
+  <defs>
+    <marker id="af" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/>
+    </marker>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- forward arrows -->
+  <g stroke="#16a34a" stroke-width="2" marker-end="url(#af)">
+    <line x1="104" y1="128" x2="130" y2="128"/>
+    <line x1="218" y1="128" x2="244" y2="128"/>
+    <line x1="332" y1="128" x2="358" y2="128"/>
+    <line x1="446" y1="128" x2="472" y2="128"/>
+    <line x1="560" y1="128" x2="586" y2="128"/>
+    <line x1="674" y1="128" x2="700" y2="128"/>
+  </g>
+  <!-- reflector to return -->
+  <line x1="752" y1="326" x2="752" y2="298" stroke="#dc2626" stroke-width="2"/>
+  <line x1="752" y1="298" x2="676" y2="298" stroke="#dc2626" stroke-width="2" marker-end="url(#ar)"/>
+  <!-- return arrows -->
+  <g stroke="#dc2626" stroke-width="2" marker-end="url(#ar)">
+    <line x1="588" y1="298" x2="562" y2="298"/>
+    <line x1="474" y1="298" x2="448" y2="298"/>
+    <line x1="360" y1="298" x2="334" y2="298"/>
+    <line x1="246" y1="298" x2="220" y2="298"/>
+    <line x1="132" y1="298" x2="106" y2="298"/>
+  </g>
+
+  <!-- annotations -->
+  <text x="403" y="178" text-anchor="middle" font-size="10.5" fill="#1e40af">right always steps &#183; double-step of the middle &#183; left rarely</text>
+  <text x="631" y="178" text-anchor="middle" font-size="10.5" fill="#5b21b6">THIN NEVER steps</text>
+
+  <!-- bottom notes -->
+  <rect x="18" y="358" width="784" height="96" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="30" y="380" font-size="12" font-weight="700" fill="#111827">Per-rotor pass math:</text>
+  <text x="30" y="400" font-size="12" fill="#374151" font-family="Consolas, monospace">off = (pos - ring + 26) % 26 ;  c = (c+off)%26 ;  c = wiring[c] ;  c = (c-off+26)%26</text>
+  <text x="30" y="424" font-size="11.5" fill="#6b7280">The reflector is a fixed-point-free involution &#8658; no letter is ever encrypted to itself</text>
+  <text x="30" y="442" font-size="11.5" fill="#6b7280">(the foundation of the bombe/crib attack; sanity-checked in the code). The path is reciprocal: decryption = encryption.</text>
+</svg>

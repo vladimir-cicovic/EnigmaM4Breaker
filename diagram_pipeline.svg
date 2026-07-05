@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="640" fill="#ffffff"/>
+  <text x="450" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">Attack pipeline: GPU coarse filter &#8594; CPU precise refinement</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13" fill="#6b7280">principle: "keep the millions on the GPU, promote only the top 20&#8211;100 to the CPU"</text>
+
+  <defs>
+    <marker id="ad" markerWidth="11" markerHeight="11" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L10,0 L5,10 Z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <!-- INPUT -->
+  <rect x="320" y="74" width="260" height="44" rx="8" fill="#e5e7eb" stroke="#374151" stroke-width="1.5"/>
+  <text x="450" y="101" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">CIPHERTEXT</text>
+  <line x1="450" y1="118" x2="450" y2="140" stroke="#374151" stroke-width="2" marker-end="url(#ad)"/>
+
+  <!-- ===== GPU REGION ===== -->
+  <rect x="40" y="146" width="820" height="220" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="62" y="174" font-size="16" font-weight="700" fill="#166534">GPU &#8212; massively parallel (one thread = one setting)</text>
+  <text x="62" y="194" font-size="11.5" fill="#15803d">wirings in __constant__ &#183; trigram table (70 KB) in L2-cached global &#183; quadgram (1.8 MB) global</text>
+
+  <rect x="62" y="206" width="360" height="64" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="242" y="230" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">1) Space search</text>
+  <text x="242" y="250" text-anchor="middle" font-size="11" fill="#166534">1344 wheel orders &#215; 26&#8308; positions (= 26^4)</text>
+  <text x="242" y="264" text-anchor="middle" font-size="11" fill="#166534">(bombe: 26&#8309;/26&#8310; settings)</text>
+
+  <rect x="478" y="206" width="360" height="64" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="658" y="230" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">2) Per thread: cheap score</text>
+  <text x="658" y="250" text-anchor="middle" font-size="11" fill="#166534">gEnc decryption + IoC / trigram-HC</text>
+  <text x="658" y="264" text-anchor="middle" font-size="11" fill="#166534">+ mini plugboard hill-climb</text>
+
+  <rect x="62" y="286" width="776" height="60" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="450" y="310" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">3) Per-block reduction &#8212; block-max (shared memory / warp shuffle __shfl_down_sync)</text>
+  <text x="450" y="330" text-anchor="middle" font-size="11" fill="#166534">no per-key result is stored (avoids GB+ of writes to global memory)</text>
+
+  <!-- transfer arrow -->
+  <line x1="450" y1="366" x2="450" y2="410" stroke="#374151" stroke-width="2.5" marker-end="url(#ad)"/>
+  <rect x="300" y="376" width="300" height="26" rx="13" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="450" y="394" text-anchor="middle" font-size="12" font-weight="700" fill="#9a3412">top-N candidates (20&#8211;100) &#8594; CPU</text>
+
+  <!-- ===== CPU REGION ===== -->
+  <rect x="40" y="416" width="820" height="150" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="62" y="444" font-size="16" font-weight="700" fill="#1e40af">CPU &#8212; precise, branch-heavy (survivors only)</text>
+
+  <rect x="62" y="456" width="360" height="58" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="242" y="480" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">4) Full quadgram hill-climb</text>
+  <text x="242" y="500" text-anchor="middle" font-size="11" fill="#1e40af">steepest-ascent + 30 restarts + 2-opt</text>
+
+  <rect x="478" y="456" width="360" height="58" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="658" y="480" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">5) Exact simulator (EnigmaCPU)</text>
+  <text x="658" y="500" text-anchor="middle" font-size="11" fill="#1e40af">verification + plaintext generation</text>
+
+  <text x="450" y="540" text-anchor="middle" font-size="11.5" fill="#1e3a8a">crib variant: cpuBombe recovers the actual 10 pairs &#183; depth variant: shared plugboard (jointHillClimb)</text>
+  <text x="450" y="557" text-anchor="middle" font-size="11.5" fill="#1e3a8a">success threshold: quadgram/char &gt; &#8722;6.2 (German &#8776; &#8722;5.6)</text>
+
+  <!-- OUTPUT -->
+  <line x1="450" y1="566" x2="450" y2="588" stroke="#374151" stroke-width="2" marker-end="url(#ad)"/>
+  <rect x="300" y="594" width="300" height="40" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="450" y="619" text-anchor="middle" font-size="14" font-weight="700" fill="#166534">KEY + PLAINTEXT</text>
+</svg>

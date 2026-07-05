@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="660" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">Turing bombe &#8212; crib napad (kod: bombeOK / cpuBombe)</text>
+  <text x="450" y="54" text-anchor="middle" font-size="13" fill="#6b7280">poznat dio teksta (crib) + propagacija plugboard ograni&#269;enja &#8594; kontradikcija odbacuje ~100% postavki</text>
+
+  <defs>
+    <marker id="bd" markerWidth="11" markerHeight="11" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L10,0 L5,10 Z" fill="#374151"/>
+    </marker>
+    <marker id="br" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <!-- ===== A) CRIB DRAG ===== -->
+  <text x="20" y="86" font-size="15" font-weight="700" fill="#111827">1) Drag criba preko &#353;ifrata &#8212; pravilo &#8222;nijedno slovo u sebe&#8220;</text>
+
+  <!-- cipher row -->
+  <text x="98" y="124" text-anchor="end" font-size="12" font-weight="700" fill="#374151">&#352;IFRAT</text>
+  <g font-size="16" font-weight="700" text-anchor="middle" fill="#111827">
+    <rect x="110" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="132" y="126">N</text>
+    <rect x="159" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="181" y="126">C</text>
+    <rect x="208" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="230" y="126">Z</text>
+    <rect x="257" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="279" y="126">W</text>
+    <rect x="306" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="328" y="126">V</text>
+    <rect x="355" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="377" y="126">U</text>
+    <rect x="404" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="426" y="126">S</text>
+    <rect x="453" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="475" y="126">X</text>
+    <rect x="502" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="524" y="126">P</text>
+    <rect x="551" y="100" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="573" y="126">N</text>
+  </g>
+
+  <!-- crib offset 0 (valid) under boxes 0..5 -->
+  <text x="98" y="176" text-anchor="end" font-size="12" font-weight="700" fill="#16a34a">CRIB &#10003;</text>
+  <g font-size="16" font-weight="700" text-anchor="middle" fill="#166534">
+    <rect x="110" y="152" width="44" height="40" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="132" y="178">W</text>
+    <rect x="159" y="152" width="44" height="40" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="181" y="178">E</text>
+    <rect x="208" y="152" width="44" height="40" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="230" y="178">T</text>
+    <rect x="257" y="152" width="44" height="40" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="279" y="178">T</text>
+    <rect x="306" y="152" width="44" height="40" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="328" y="178">E</text>
+    <rect x="355" y="152" width="44" height="40" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="377" y="178">R</text>
+  </g>
+  <text x="610" y="178" font-size="12" fill="#166534">offset 0: nigdje crib=&#353;ifrat &#8594; <tspan font-weight="700">dozvoljeno</tspan></text>
+
+  <!-- crib offset 3 (clash) under boxes 3..8 -->
+  <text x="98" y="224" text-anchor="end" font-size="12" font-weight="700" fill="#dc2626">CRIB &#10007;</text>
+  <g font-size="16" font-weight="700" text-anchor="middle">
+    <rect x="257" y="200" width="44" height="40" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/><text x="279" y="226" fill="#991b1b">W</text>
+    <rect x="306" y="200" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="328" y="226" fill="#111827">E</text>
+    <rect x="355" y="200" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="377" y="226" fill="#111827">T</text>
+    <rect x="404" y="200" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="426" y="226" fill="#111827">T</text>
+    <rect x="453" y="200" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="475" y="226" fill="#111827">E</text>
+    <rect x="502" y="200" width="44" height="40" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="524" y="226" fill="#111827">R</text>
+  </g>
+  <text x="610" y="226" font-size="12" fill="#dc2626">offset 3: W iznad W &#8594; <tspan font-weight="700">odba&#269;eno</tspan></text>
+
+  <line x1="20" y1="258" x2="880" y2="258" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- ===== B) PROPAGATION ===== -->
+  <text x="20" y="284" font-size="15" font-weight="700" fill="#111827">2) Za dozvoljeni offset i svaku rotorsku postavku: propagiraj plugboard implikacije</text>
+
+  <!-- box1 -->
+  <rect x="150" y="300" width="600" height="48" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="450" y="320" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Pretpostavi stecker za prvo slovo criba:  crib[0] &#8596; g</text>
+  <text x="450" y="338" text-anchor="middle" font-size="11" fill="#92400e">(probaj svih g = A..Z; S = parcijalna involucija, 255 = nepoznato)</text>
+  <line x1="450" y1="348" x2="450" y2="368" stroke="#374151" stroke-width="2" marker-end="url(#bd)"/>
+
+  <!-- box2 -->
+  <rect x="120" y="370" width="660" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="450" y="392" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Za poziciju i:  ako je S[a] poznato  &#8594;  w = npEnc(rotori+reflektor, S[a])</text>
+  <text x="450" y="411" text-anchor="middle" font-size="12" fill="#1e40af">&#8594; mora vrijediti  S[cipher[i]] = w</text>
+  <text x="450" y="426" text-anchor="middle" font-size="10.5" fill="#1e40af">npEnc = no-plug permutacija po poziciji (rotori se znaju iz postavke; plugboard NE)</text>
+
+  <!-- split arrows -->
+  <line x1="450" y1="432" x2="450" y2="452" stroke="#374151" stroke-width="2"/>
+  <line x1="450" y1="452" x2="270" y2="452" stroke="#374151" stroke-width="2"/>
+  <line x1="270" y1="452" x2="270" y2="470" stroke="#374151" stroke-width="2" marker-end="url(#bd)"/>
+  <line x1="450" y1="452" x2="640" y2="452" stroke="#374151" stroke-width="2"/>
+  <line x1="640" y1="452" x2="640" y2="470" stroke="#374151" stroke-width="2" marker-end="url(#bd)"/>
+  <text x="350" y="447" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">w u sukobu sa S</text>
+  <text x="560" y="447" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">w konzistentno</text>
+
+  <!-- left: contradiction -->
+  <rect x="90" y="472" width="360" height="66" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="270" y="496" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">KONTRADIKCIJA</text>
+  <text x="270" y="515" text-anchor="middle" font-size="11" fill="#991b1b">odbaci ovu (raspored, postavku)</text>
+  <text x="270" y="530" text-anchor="middle" font-size="11" fill="#991b1b">&#8594; ~100% svih postavki ovdje otpadne</text>
+
+  <!-- right: consistent -->
+  <rect x="460" y="472" width="350" height="66" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="635" y="496" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">dodaj par u S (dSet)</text>
+  <text x="635" y="514" text-anchor="middle" font-size="11" fill="#166534">diagonal board: a&#8596;b &#8658; b&#8596;a</text>
+  <text x="635" y="529" text-anchor="middle" font-size="11" fill="#166534">nastavi na sljede&#263;u poziciju criba</text>
+
+  <!-- loop back from consistent to box2 -->
+  <line x1="810" y1="505" x2="852" y2="505" stroke="#374151" stroke-width="2"/>
+  <line x1="852" y1="505" x2="852" y2="401" stroke="#374151" stroke-width="2"/>
+  <line x1="852" y1="401" x2="782" y2="401" stroke="#374151" stroke-width="2" marker-end="url(#br)"/>
+  <text x="857" y="455" font-size="10" fill="#6b7280" transform="rotate(90 857 455)">petlja po cribu</text>
+
+  <!-- down from consistent to result -->
+  <line x1="635" y1="538" x2="635" y2="560" stroke="#374151" stroke-width="2"/>
+  <line x1="635" y1="560" x2="450" y2="560" stroke="#374151" stroke-width="2"/>
+  <line x1="450" y1="560" x2="450" y2="578" stroke="#374151" stroke-width="2" marker-end="url(#bd)"/>
+  <text x="540" y="555" text-anchor="middle" font-size="10.5" fill="#6b7280">cijeli crib pro&#353;ao bez sukoba</text>
+
+  <!-- result -->
+  <rect x="150" y="580" width="600" height="62" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="450" y="604" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">KONZISTENTAN PLUGBOARD &#8594; KANDIDAT</text>
+  <text x="450" y="624" text-anchor="middle" font-size="11" fill="#5b21b6">GPU bombeOK vra&#263;a postavku &#183; CPU cpuBombe rekonstrui&#353;e stvarnih 10 parova &#183; ring-split + quadgram &#8594; klju&#269; + plaintext</text>
+</svg>

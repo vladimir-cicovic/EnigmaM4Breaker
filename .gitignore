@@ -1,0 +1,18 @@
+# Build output
+/build/
+*.exe
+*.obj
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor/OS
+.vs/
+.vscode/
+*.user
+Thumbs.db
