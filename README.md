@@ -188,6 +188,4 @@ Full argument reference (every flag, mode, and default) for all tools:
 
 ## License
 
-No license file yet - all rights reserved by default until one is added. If you intend
-to publish this publicly, add a `LICENSE` (e.g. MIT or Apache-2.0) before relying on
-others being able to reuse the code.
+GNU GPL v3
