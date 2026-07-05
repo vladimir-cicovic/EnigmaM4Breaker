@@ -184,7 +184,6 @@ Full argument reference (every flag, mode, and default) for all tools:
   (IoC, quadgram scoring, bombe, hill-climbing, depth), with sources.
 - [MANUAL_EN.md](MANUAL_EN.md) / [UPUTSTVO_SR.md](UPUTSTVO_SR.md) - user manuals
   (English / Serbian): history, usage, build & install, troubleshooting.
-- [informacije_enigma.txt](informacije_enigma.txt) - development log / project notes.
 
 ## License
 
